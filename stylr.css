@@ -1,28 +1,25 @@
 /* ==========================================================
-   Laboratorio #5 - Estilizando la pagina con CSS3
-   Autor: YASER GARCIA 8-922-1940
-   Hoja de estilo externa, enlazada desde index.html con
-   <link rel="stylesheet" href="styles.css">
+   PARTE 1 - Sintaxis CSS y comentarios
+   Una regla se compone de un selector, llaves, y dentro una o
+   mas declaraciones con el formato propiedad: valor;
+   Los comentarios se abren con barra-asterisco y se cierran
+   con asterisco-barra. Nunca se usa la doble barra.
    ========================================================== */
 
-/* ----------------------------------------------------------
-   PARTE 1 - Sintaxis CSS y comentarios
-   Primera regla escrita: el color de fondo general del sitio
-   (regla body, mas abajo). Un comentario CSS abre con barra-asterisco
-   y cierra con asterisco-barra; nunca se usa la doble barra.
-   ---------------------------------------------------------- */
 
-/* ----------------------------------------------------------
+/* ==========================================================
    PARTE 3 - Selector universal (reset general)
-   El selector * aplica la regla a todos los elementos
-   ---------------------------------------------------------- */
+   ========================================================== */
+
+/* El selector * aplica a absolutamente todos los elementos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Tipografia base heredable para todo el documento */
+/* Color de fondo general y tipografia base del sitio.
+   body no es universal, pero sus valores se heredan */
 body {
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
@@ -30,18 +27,20 @@ body {
     line-height: 1.6;
 }
 
-/* ----------------------------------------------------------
-   PARTE 4 - Selectores de clase
-   ---------------------------------------------------------- */
 
-/* .navbar: los enlaces de navegacion se muestran en fila */
+/* ==========================================================
+   PARTE 4 - Selectores de clase
+   El punto indica clase: se reutiliza en varios elementos
+   ========================================================== */
+
+/* .navbar: usada en el nav del header y en el nav del pie */
 .navbar {
     display: flex;
     gap: 16px;
     list-style: none;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin-top: 20px;
 }
 
@@ -49,8 +48,8 @@ body {
     display: flex;
     gap: 16px;
     list-style: none;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
 }
@@ -65,7 +64,7 @@ body {
     transition: background-color 0.2s ease;
 }
 
-/* Sobre el fondo oscuro del header y del pie el texto va en blanco */
+/* Sobre los fondos oscuros del header y del pie va en blanco */
 header .nav-link,
 #pie .nav-link {
     color: #ffffff;
@@ -77,7 +76,7 @@ header .nav-link,
     text-decoration: none;
 }
 
-/* .btn: misma clase reutilizada en botones de tipo submit y button */
+/* .btn: la misma clase sirve para botones submit y button */
 .btn {
     background-color: #e8791a;
     color: #ffffff;
@@ -94,7 +93,7 @@ header .nav-link,
     transform: translateY(-1px);
 }
 
-/* .card: tarjetas repetidas de los videos sugeridos */
+/* .card: un solo bloque estiliza las cuatro tarjetas */
 .card {
     margin-bottom: 12px;
     padding: 8px;
@@ -107,16 +106,17 @@ header .nav-link,
     margin-bottom: 8px;
 }
 
-/* .tabla-scroll: contenedor con desplazamiento para la tabla */
-.tabla-scroll {
-    width: 100%;
-    overflow-x: auto;
-    margin-bottom: 16px;
+/* .footer-nav: ajuste propio del menu del pie de pagina */
+.footer-nav {
+    margin-top: 0;
+    margin-bottom: 12px;
 }
 
-/* ----------------------------------------------------------
+
+/* ==========================================================
    PARTE 5 - Selectores de id (elementos unicos)
-   ---------------------------------------------------------- */
+   La almohadilla indica id: solo puede usarse una vez
+   ========================================================== */
 
 /* #video-player: reproductor centrado con ancho maximo */
 #video-player {
@@ -129,7 +129,7 @@ header .nav-link,
     border-radius: 10px;
 }
 
-/* #sugeridos: panel lateral con ancho fijo y fondo distinto */
+/* #sugeridos: panel lateral con ancho fijo y fondo propio */
 #sugeridos {
     width: 300px;
     max-width: 100%;
@@ -161,16 +161,17 @@ header .nav-link,
     color: #ffffff;
 }
 
-/* #audio-player: reproductor de audio */
-#audio-player audio {
-    width: 100%;
-    max-width: 520px;
-    margin: 8px 0 12px;
+/* #inicio: contenedor principal de la pagina */
+#inicio {
+    width: min(100% - 32px, 1100px);
+    margin: 24px auto;
 }
 
-/* ----------------------------------------------------------
+
+/* ==========================================================
    PARTE 6 - Selector de agrupacion y ajustes finales
-   ---------------------------------------------------------- */
+   La coma agrupa varios selectores en un mismo bloque
+   ========================================================== */
 
 /* Agrupacion: los tres niveles de titulo comparten estilo */
 h1,
@@ -196,14 +197,7 @@ textarea:focus {
     border-color: #e8791a;
 }
 
-/* Agrupacion: espaciado de listas */
-ul,
-ol {
-    padding-left: 24px;
-    margin-bottom: 14px;
-}
-
-/* Agrupacion: campos de formulario */
+/* Agrupacion: campos de texto del buscador y de comentarios */
 input,
 textarea {
     width: 100%;
@@ -215,6 +209,13 @@ textarea {
     font: inherit;
 }
 
+/* Agrupacion: espaciado de listas */
+ul,
+ol {
+    padding-left: 24px;
+    margin-bottom: 14px;
+}
+
 /* Las imagenes nunca se desbordan de su contenedor */
 img {
     max-width: 100%;
@@ -222,7 +223,11 @@ img {
     display: block;
 }
 
-/* Estructura general de la pagina */
+
+/* ----------------------------------------------------------
+   Ajustes finales de estructura, espaciado y alineacion
+   ---------------------------------------------------------- */
+
 header {
     background: linear-gradient(135deg, #0b1f3a, #1b477d);
     color: #ffffff;
@@ -242,11 +247,6 @@ header p {
     font-size: 1.05rem;
 }
 
-main {
-    width: min(100% - 32px, 1100px);
-    margin: 24px auto;
-}
-
 main > section {
     background-color: #ffffff;
     margin-bottom: 24px;
@@ -257,6 +257,11 @@ main > section {
 
 main article {
     margin-bottom: 20px;
+}
+
+main article img {
+    margin: 8px 0;
+    border-radius: 8px;
 }
 
 p {
@@ -277,69 +282,20 @@ input[type="search"] {
     max-width: 520px;
 }
 
-/* Figuras con pie de imagen */
-figure {
-    margin: 16px 0;
-}
-
-figure img {
-    border-radius: 8px;
-}
-
-figcaption {
-    font-size: 0.92rem;
+time {
+    display: block;
+    font-size: 0.9rem;
     color: #55607a;
-    font-style: italic;
-    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
-/* Tabla comparativa de planetas */
-table {
-    width: 100%;
-    min-width: 520px;
-    border-collapse: collapse;
-    margin: 12px 0;
-}
-
-caption {
-    caption-side: top;
-    text-align: left;
-    font-weight: bold;
-    color: #1b2a4a;
-    padding-bottom: 8px;
-}
-
-th,
-td {
-    border: 1px solid #d5dce6;
-    padding: 10px 12px;
-    text-align: left;
-}
-
-thead th {
-    background-color: #1b477d;
-    color: #ffffff;
-}
-
-tbody th {
-    background-color: #eef1f6;
-}
-
-tbody tr:nth-child(even) td {
-    background-color: #f5f7fb;
-}
-
-/* Enlaces del pie de pagina */
-.footer-nav ul {
-    margin-bottom: 12px;
-}
-
-/* Accesibilidad: foco visible en enlaces y botones */
+/* Foco visible para navegacion con teclado */
 a:focus-visible,
 button:focus-visible {
     outline: 3px solid #e8791a;
     outline-offset: 2px;
 }
+
 
 /* ----------------------------------------------------------
    Adaptacion para pantallas pequenas
@@ -363,10 +319,5 @@ button:focus-visible {
 
     header img {
         width: 140px;
-    }
-
-    table {
-        min-width: 480px;
-        font-size: 0.92rem;
     }
 }
