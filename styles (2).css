@@ -1,0 +1,372 @@
+/* ==========================================================
+   Laboratorio #5 - Estilizando la pagina con CSS3
+   Autor: YASER GARCIA 8-922-1940
+   Hoja de estilo externa, enlazada desde index.html con
+   <link rel="stylesheet" href="styles.css">
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   PARTE 1 - Sintaxis CSS y comentarios
+   Primera regla escrita: el color de fondo general del sitio
+   (regla body, mas abajo). Un comentario CSS abre con barra-asterisco
+   y cierra con asterisco-barra; nunca se usa la doble barra.
+   ---------------------------------------------------------- */
+
+/* ----------------------------------------------------------
+   PARTE 3 - Selector universal (reset general)
+   El selector * aplica la regla a todos los elementos
+   ---------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipografia base heredable para todo el documento */
+body {
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    color: #212121;
+    line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   PARTE 4 - Selectores de clase
+   ---------------------------------------------------------- */
+
+/* .navbar: los enlaces de navegacion se muestran en fila */
+.navbar {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* .nav-link: color, sin subrayado y en negrita */
+.nav-link {
+    color: #1b2a4a;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+/* Sobre el fondo oscuro del header y del pie el texto va en blanco */
+header .nav-link,
+#pie .nav-link {
+    color: #ffffff;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: #e8791a;
+    text-decoration: none;
+}
+
+/* .btn: misma clase reutilizada en botones de tipo submit y button */
+.btn {
+    background-color: #e8791a;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #c95f0c;
+    transform: translateY(-1px);
+}
+
+/* .card: tarjetas repetidas de los videos sugeridos */
+.card {
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.card img {
+    margin-bottom: 8px;
+}
+
+/* .tabla-scroll: contenedor con desplazamiento para la tabla */
+.tabla-scroll {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 16px;
+}
+
+/* ----------------------------------------------------------
+   PARTE 5 - Selectores de id (elementos unicos)
+   ---------------------------------------------------------- */
+
+/* #video-player: reproductor centrado con ancho maximo */
+#video-player {
+    max-width: 720px;
+    margin: 24px auto;
+}
+
+#video-player video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* #sugeridos: panel lateral con ancho fijo y fondo distinto */
+#sugeridos {
+    width: 300px;
+    max-width: 100%;
+    background-color: #eef1f6;
+    padding: 12px;
+    margin: 24px auto;
+    border-radius: 10px;
+}
+
+#sugeridos a {
+    color: #1b2a4a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#sugeridos a:hover {
+    text-decoration: underline;
+}
+
+/* #pie: fondo oscuro con texto claro */
+#pie {
+    background-color: #1b2a4a;
+    color: #ffffff;
+    padding: 16px;
+    text-align: center;
+}
+
+#pie a {
+    color: #ffffff;
+}
+
+/* #audio-player: reproductor de audio */
+#audio-player audio {
+    width: 100%;
+    max-width: 520px;
+    margin: 8px 0 12px;
+}
+
+/* ----------------------------------------------------------
+   PARTE 6 - Selector de agrupacion y ajustes finales
+   ---------------------------------------------------------- */
+
+/* Agrupacion: los tres niveles de titulo comparten estilo */
+h1,
+h2,
+h3 {
+    font-family: Arial, sans-serif;
+    color: #1b2a4a;
+    margin-bottom: 8px;
+    line-height: 1.25;
+}
+
+/* Agrupacion: titulos sobre el fondo oscuro del header */
+header h1,
+header h2,
+header h3 {
+    color: #ffffff;
+}
+
+/* Agrupacion: estados de foco de los campos del formulario */
+input[type="search"]:focus,
+textarea:focus {
+    outline: 2px solid #e8791a;
+    border-color: #e8791a;
+}
+
+/* Agrupacion: espaciado de listas */
+ul,
+ol {
+    padding-left: 24px;
+    margin-bottom: 14px;
+}
+
+/* Agrupacion: campos de formulario */
+input,
+textarea {
+    width: 100%;
+    max-width: 650px;
+    padding: 11px;
+    margin: 6px 0 14px;
+    border: 1px solid #b9c2cf;
+    border-radius: 6px;
+    font: inherit;
+}
+
+/* Las imagenes nunca se desbordan de su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Estructura general de la pagina */
+header {
+    background: linear-gradient(135deg, #0b1f3a, #1b477d);
+    color: #ffffff;
+    text-align: center;
+    padding: 24px;
+}
+
+header img {
+    width: 180px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    border: 4px solid #ffffff;
+}
+
+header p {
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+}
+
+main {
+    width: min(100% - 32px, 1100px);
+    margin: 24px auto;
+}
+
+main > section {
+    background-color: #ffffff;
+    margin-bottom: 24px;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+main article {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+form {
+    margin: 16px auto;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input[type="search"] {
+    max-width: 520px;
+}
+
+/* Figuras con pie de imagen */
+figure {
+    margin: 16px 0;
+}
+
+figure img {
+    border-radius: 8px;
+}
+
+figcaption {
+    font-size: 0.92rem;
+    color: #55607a;
+    font-style: italic;
+    margin-top: 6px;
+}
+
+/* Tabla comparativa de planetas */
+table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    margin: 12px 0;
+}
+
+caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: bold;
+    color: #1b2a4a;
+    padding-bottom: 8px;
+}
+
+th,
+td {
+    border: 1px solid #d5dce6;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+thead th {
+    background-color: #1b477d;
+    color: #ffffff;
+}
+
+tbody th {
+    background-color: #eef1f6;
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #f5f7fb;
+}
+
+/* Enlaces del pie de pagina */
+.footer-nav ul {
+    margin-bottom: 12px;
+}
+
+/* Accesibilidad: foco visible en enlaces y botones */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #e8791a;
+    outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------
+   Adaptacion para pantallas pequenas
+   ---------------------------------------------------------- */
+@media (max-width: 700px) {
+    header,
+    main > section,
+    #pie {
+        padding: 16px;
+    }
+
+    .navbar,
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #sugeridos {
+        width: 100%;
+    }
+
+    header img {
+        width: 140px;
+    }
+
+    table {
+        min-width: 480px;
+        font-size: 0.92rem;
+    }
+}
